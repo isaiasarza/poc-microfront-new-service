@@ -1,5 +1,5 @@
 {
-  "name": "shell",
+  "name": "nextjs-ssr_shell",
   "version": "0.1.0",
   "private": true,
   "scripts": {

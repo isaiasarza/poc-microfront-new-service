@@ -1,33 +1,26 @@
-import React, {Suspense,lazy} from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-console.log('fromHome',__webpack_share_scopes__, Link);
+import React, { Suspense, lazy } from "react";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+console.log("fromHome", __webpack_share_scopes__, Link);
 
 // export const HelloWorld = lazy(() => import('./helloWorld').then(mod => {
 //   return {default: mod.HelloWorld}
 // }));
 
-
 const Nav = () => (
   <nav>
-    {/* <Suspense>
-    <HelloWorld />
-    </Suspense> */}
     <ul>
       <li>
-        <Link href="/">
-          Home
-        </Link>
-        <Link href="/login">
-          Login
-        </Link>
+        <Link href="/home">Home</Link>
+        <Link href="/login">Login</Link>
       </li>
     </ul>
 
     <style jsx>{`
       :global(body) {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+          Helvetica, sans-serif;
       }
       nav {
         text-align: center;

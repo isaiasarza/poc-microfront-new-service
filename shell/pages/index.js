@@ -6,7 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 typeof window !== "undefined" && console.log(window.checkout);
 // const RemoteTitle = lazy(() => import('checkout/title'));
 
-const Home = ({ loaded }) => {
+const Index = ({ loaded }) => {
   return (
     <NextUIProvider>
       <div>
@@ -89,4 +89,4 @@ const Home = ({ loaded }) => {
 //   return {};
 // };
 
-export default Home;
+export default Index;

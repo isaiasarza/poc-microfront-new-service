@@ -1,6 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
-import { revalidate, FlushedChunks, flushChunks } from "@module-federation/nextjs-mf/utils";
+import {
+  revalidate,
+  FlushedChunks,
+  flushChunks,
+} from "@module-federation/nextjs-mf/utils";
+import { NextUIProvider } from "@nextui-org/react";
+
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
   //   if(process.env.NODE_ENV === "development" && !ctx.req.url.includes("_next")) {
@@ -26,18 +32,19 @@ class MyDocument extends Document {
   // }
 
   render() {
-
     return (
       <Html>
         <Head>
           <meta name="robots" content="noindex" />
           <FlushedChunks chunks={this.props.chunks} />
         </Head>
+        <NextUIProvider>
+          <body className="bg-background-grey">
+            <Main />
 
-        <body className="bg-background-grey">
-        <Main />
-        <NextScript />
-        </body>
+            <NextScript />
+          </body>
+        </NextUIProvider>
       </Html>
     );
   }

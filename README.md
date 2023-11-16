@@ -15,10 +15,6 @@ Consta de dos microfront (login y home), más el componente orquestador o conten
 - **@nextui-org/react: ^2.2.9**
 - **@module-federation/nextjs-mf: ^8.1.0-canary.1**.
 
-Para realizar esta prueba es necesario utilizar la dependencia **@module-federation/nextjs-mf**.
-
-Esto también implico realizar un downgrade de **nextjs** (10.2.3) y **nodejs** (16.13.0).
-
 ## Ejecutar
 
 ```shell

@@ -16,7 +16,8 @@
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "webpack": "5.89.0"
+    "webpack": "5.89.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

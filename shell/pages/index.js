@@ -1,12 +1,38 @@
-import React, { Fragment, Suspense, lazy } from "react";
+import React, { Fragment, Suspense, lazy, useEffect } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { NextUIProvider } from "@nextui-org/react";
+import useLoginStore from "login/loginStore";
+import { useRouter } from "next/router";
 
 typeof window !== "undefined" && console.log(window.checkout);
-// const RemoteTitle = lazy(() => import('checkout/title'));
 
 const Index = ({ loaded }) => {
+  const router = useRouter();
+  const currentUser = useLoginStore((state) => state.currentUser);
+  
+  const initializeStore = (currentUser) => {
+    
+
+    resolve(currentUser);
+
+    const unsub = useLoginStore.subscribe((state) => {
+      const { currentUser } = state;
+
+      resolve(currentUser);
+      console.log("🚀 ~ file: index.js:14 ~ unsub ~ currentUser:", currentUser);
+    });
+  };
+
+  const resolve = (currentUser) => {
+    if (!currentUser) router.push("/login", { scroll: false });
+    else router.push("/home", { scroll: false });
+  };
+
+  useEffect(() => {
+    initializeStore(currentUser);
+  });
+
   return (
     <NextUIProvider>
       <div>
@@ -14,18 +40,6 @@ const Index = ({ loaded }) => {
           <title>Shell</title>
           <link rel="icon" href="/nextjs-ssr/home/public/favicon.ico" />
         </Head>
-
-        {/* <RemoteLogin></RemoteLogin> */}
-
-        {/* <div className="hero">
-        
-        <h1 className="title">
-          This is a container page
-        </h1>
-        <p className="description">
-          To get started, edit <code>pages/index.js</code> and save to reload.
-        </p>
-      </div> */}
 
         <style jsx>{`
           .hero {

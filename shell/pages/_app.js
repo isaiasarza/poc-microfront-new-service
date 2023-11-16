@@ -1,10 +1,17 @@
 import App from "next/app";
 import Nav from "../components/nav";
+import { useRouter } from "next/navigation";
+
+import useLoginStore from "login/loginStore";
 import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
+  
+
+  
+
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       <Component {...pageProps} />
       <style jsx>{`
         .hero {

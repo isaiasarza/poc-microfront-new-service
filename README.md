@@ -22,7 +22,7 @@ Esto también implico realizar un downgrade de **nextjs** (10.2.3) y **nodejs** 
 ## Ejecutar
 
 ```shell
-    yarn install #Instalar las dependencias necesarias en cada componente (mf-1, mf-2, mf-3, shell y carpeta raíz).
+    yarn install #Instalar las dependencias necesarias en cada componente.
     yarn run start #Ejecutar desde la carpeta raíz, esto levanta todos los componentes.
     yarn run build #Ejecutar desde la carpeta raíz, esto "buildea" todos los componentes.
 ```

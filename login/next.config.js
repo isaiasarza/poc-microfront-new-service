@@ -12,7 +12,8 @@ module.exports = {
         name: "login",
         filename: "static/chunks/remoteEntry.js",
         exposes: {
-            './login': './pages/login.js',
+          "./login": "./pages/login.js",
+          "./loginStore": "./store/store.js",
         },
         remotes: remotes(options.isServer),
         shared: {},

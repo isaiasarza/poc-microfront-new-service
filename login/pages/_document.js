@@ -6,7 +6,7 @@ import {
   flushChunks,
 } from "@module-federation/nextjs-mf/utils";
 import { NextUIProvider } from "@nextui-org/react";
-
+import { ToastContainer } from "react-toastify";
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
   //   if(process.env.NODE_ENV === "development" && !ctx.req.url.includes("_next")) {
@@ -39,11 +39,13 @@ class MyDocument extends Document {
           <FlushedChunks chunks={this.props.chunks} />
         </Head>
         <NextUIProvider>
-          <body className="bg-background-grey">
-            <Main />
+          <ToastContainer>
+            <body className="bg-background-grey">
+              <Main />
 
-            <NextScript />
-          </body>
+              <NextScript />
+            </body>
+          </ToastContainer>
         </NextUIProvider>
       </Html>
     );

@@ -1,18 +1,9 @@
 import { Card, CardBody, CardHeader, Divider, User } from "@nextui-org/react";
-
+import globalStore from "shell/globalStore";
+import dayjs from 'dayjs';
 const MyAccountComponent = () => {
-  const accountInfo = {
-    user: {
-      selfie: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-      name: "María Esteban Quito",
-    },
-
-    account: {
-      status: "Activa",
-      expiration: "20/12/2023",
-      services: ["Mi TV Plus Max", "Internet Satellit Pro"],
-    },
-  };
+  const accountInfo = (globalStore((state) => state.accountInfo));
+  
   return (
     <Card className="w-[30rem]">
       <CardHeader className="flex gap-3">

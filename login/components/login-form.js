@@ -1,3 +1,4 @@
+import { authUser } from "@/services/auth.helper";
 import useLoginStore from "@/store/store";
 import {
   Button,
@@ -9,16 +10,51 @@ import {
   Input,
 } from "@nextui-org/react";
 import { useFormik } from "formik";
+import { toast } from "react-toastify";
+import globalStore from "shell/globalStore";
 
 const LoginForm = () => {
   const setCurrentUser = useLoginStore((state) => state.setCurrentUser);
 
+  const setAccountInfo = globalStore((state) => state.setAccountInfo);
+
+  const setNewServiceState = globalStore((state) => state.setNewServiceState);
+
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "mestebanquito@gmail.com",
+      password: "1234",
     },
-    onSubmit: (values) => setCurrentUser(values),
+    onSubmit: async (values) => {
+      try {
+        const accountInfo = await authUser({
+          email: values.email,
+          password: values.password,
+        });
+        console.log("🚀 ~ file: login-form.js:28 ~ LoginForm ~ user:", accountInfo);
+
+        setAccountInfo(accountInfo);
+
+        const newServiceState = {
+          currentStep: "login",
+          nextStep: "home",
+          payload: accountInfo,
+        };
+
+        setNewServiceState(newServiceState);
+      } catch (error) {
+        console.error(
+          "🚀 ~ file: login-form.js:43 ~ onSubmit: ~ error:",
+          error
+        );
+        toast(error, {
+          hideProgressBar: true,
+          autoClose: 2000,
+          type: "error",
+          position: "bottom-right",
+        });
+      }
+    },
   });
   return (
     <Card className="w-[30rem]">

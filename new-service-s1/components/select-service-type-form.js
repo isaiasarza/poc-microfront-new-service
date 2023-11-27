@@ -1,5 +1,4 @@
 import { fetchServiceType } from "@/services/service-type.helper";
-import useS1Store from "@/store/store";
 import {
   Button,
   Card,
@@ -56,7 +55,7 @@ const SelectServiceTypeFormComponent = () => {
   });
 
   return (
-    <Card className="w-[60rem]">
+    <Card  fullWidth={true}>
       <CardHeader className="flex gap-3">
         <div className="flex flex-col">
           <p className="text-md">Nuevo Servicio</p>

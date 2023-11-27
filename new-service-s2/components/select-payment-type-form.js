@@ -17,7 +17,7 @@ import globalStore from "shell/globalStore";
 
 const SelectPaymentTypeFormComponent = () => {
   const [types, setTypes] = useState([]);
-
+  const newServiceState = globalStore((state) => state.newServiceState);
   const setNewServiceState = globalStore((state) => state.setNewServiceState);
 
   useEffect(() => {
@@ -25,13 +25,8 @@ const SelectPaymentTypeFormComponent = () => {
     fetchData();
   }, []);
 
-  const getType = (_type) => types.find(({ type }) => type === _type);
-
-  const getSubtype = (_subType) =>
-    getType(formik.values.type).subTypes.find(({ type }) => type === _subType);
-
   const validationSchema = Yup.object().shape({
-    type: Yup.string().required("El método de pago es requerido"),
+    cardType: Yup.string().required("El método de pago es requerido"),
     cardNumber: Yup.string()
       .required("El número de tarjeta es requerido")
       .matches(/^[0-9]+$/, "Debe contener únicamente números")
@@ -54,7 +49,7 @@ const SelectPaymentTypeFormComponent = () => {
 
   const formik = useFormik({
     initialValues: {
-      type: "",
+      cardType: "",
       cardNumber: "",
       cardSecurityCode: "",
       cardName: "",
@@ -62,15 +57,15 @@ const SelectPaymentTypeFormComponent = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      const payload = { ...newServiceState.payload, ...values };
 
-      const newServiceState = {
+      const _newServiceState = {
         currentStep: "select-payment-type",
         nextStep: "confirm-service-subscription",
-        payload: values,
+        payload,
       };
 
-      setNewServiceState(newServiceState);
+      setNewServiceState(_newServiceState);
     },
   });
 
@@ -99,13 +94,13 @@ const SelectPaymentTypeFormComponent = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className="flex w-full flex-wrap md:flex-nowrap gap-4 pb-4">
             <Select
-              id="type"
-              name="type"
+              id="cardType"
+              name="cardType"
               label="Método de pago"
               placeholder="Seleccione el método de pago"
               className="max-w"
               onChange={formik.handleChange}
-              value={formik.values.type}
+              value={formik.values.cardType}
             >
               {types.map((t) => (
                 <SelectItem key={t.type} value={t.type}>

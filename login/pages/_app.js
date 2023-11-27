@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 
 
+
 // const Nav = lazy(() => import('home/nav') ,{suspense:true});
 
 function MyApp({ Component, pageProps }) {
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
       <Nav />
       </Suspense> */}
       <Component {...pageProps} />
+     
     </>
   );
 }

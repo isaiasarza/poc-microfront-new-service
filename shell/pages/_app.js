@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 import "../styles/globals.css";
 import Nav from "@/components/nav";
 import { useRouter } from "next/navigation";
+import globalStore from "@/store/store";
 
 function MyApp({ Component, pageProps }) {
  const router = useRouter()
  const [loggedIn, setLoggedIn] = useState();
   const initializeStore = () => {
-    const unsub = useLoginStore.subscribe((state) => {
-      const { currentUser } = state;
-      const _loggedIn = (!!currentUser?.email);
+    const unsub = globalStore.subscribe((state) => {
+      const { accountInfo } = state;
+      const _loggedIn = (!!accountInfo?.user);
       console.log("🚀 ~ file: _app.js:16 ~ unsub ~ _loggedIn:", _loggedIn);
       setLoggedIn(_loggedIn);
     });

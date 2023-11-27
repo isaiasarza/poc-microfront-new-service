@@ -10,6 +10,7 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.1.0-canary.1",
     "@nextui-org/react": "^2.2.9",
+    "dayjs": "^1.11.10",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.5",
     "lodash": "4.17.21",

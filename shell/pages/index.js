@@ -3,7 +3,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { NextUIProvider } from "@nextui-org/react";
 import useLoginStore from "login/loginStore";
-//import useS1Store from "s1/s1Store";
 import { useRouter } from "next/router";
 import globalStore from "@/store/store";
 
@@ -16,23 +15,16 @@ const Index = () => {
   const initializeStore = (currentUser) => {
     resolve(currentUser);
 
-    const unsub = useLoginStore.subscribe((state) => {
-      const { currentUser } = state;
-
-      resolve(currentUser);
-      console.log("🚀 ~ file: index.js:14 ~ unsub ~ currentUser:", currentUser);
-    });
-
     globalStore.subscribe((state) => {
       const { newServiceState } = state;
       console.log(
-        "🚀 ~ file: index.js:27 ~ useS1Store.subscribe ~ newServiceState:",
+        "🚀 ~ file: index.js:27 ~ globalStore.subscribe ~ newServiceState:",
         newServiceState
       );
 
-      router.push(`/${newServiceState.nextStep}`)
+      if (!newServiceState) return;
 
-      // resolve(currentUser);
+      router.push(`/${newServiceState.nextStep}`);
     });
   };
 

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 
-const globalStore = create(
+const useS1Store = create(
   subscribeWithSelector((set) => ({
     newServiceState: undefined,
     setNewServiceState: (newServiceState) => set(() => ({ newServiceState: newServiceState })),
@@ -9,4 +9,4 @@ const globalStore = create(
   }))
 );
 
-export default globalStore;
+export default useS1Store;

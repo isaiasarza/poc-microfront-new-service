@@ -6,6 +6,9 @@ const remotes = (isServer) => {
   return {
     login: `login@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
     home: `home@http://localhost:3002/_next/static/${location}/remoteEntry.js`,
+    s1: `s1@http://localhost:3003/_next/static/${location}/remoteEntry.js`,
+    s2: `s2@http://localhost:3004/_next/static/${location}/remoteEntry.js`,
+    s3: `s3@http://localhost:3005/_next/static/${location}/remoteEntry.js`,
   };
 };
 module.exports = {
@@ -14,7 +17,9 @@ module.exports = {
       new NextFederationPlugin({
         name: "shell",
         filename: "static/chunks/remoteEntry.js",
-        exposes: {},
+        exposes: {
+          "./globalStore": "./store/store.js",
+        },
         remotes: remotes(options.isServer),
         shared: {},
         extraOptions: {

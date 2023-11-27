@@ -11,11 +11,10 @@ module.exports = {
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
-        name: "s1",
+        name: "s2",
         filename: "static/chunks/remoteEntry.js",
         exposes: {
-          "./select-service-type": "./pages/select-service-type.js",
-          "./s1Store": "./store/store.js",
+          "./select-payment-type": "./pages/select-payment-type.js",
         },
         remotes: remotes(options.isServer),
         shared: {},

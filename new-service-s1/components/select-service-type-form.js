@@ -1,4 +1,5 @@
 import { fetchServiceType } from "@/services/service-type.helper";
+import useS1Store from "@/store/store";
 import {
   Button,
   Card,
@@ -13,8 +14,12 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
+import globalStore from "shell/globalStore";
+
 const SelectServiceTypeFormComponent = () => {
   const [types, setTypes] = useState([]);
+
+  const setNewServiceState = globalStore((state) => state.setNewServiceState);
 
   useEffect(() => {
     const fetchData = async () => setTypes(await fetchServiceType());
@@ -38,9 +43,15 @@ const SelectServiceTypeFormComponent = () => {
       subType: "",
       price: undefined,
     },
-    //validationSchema,
+    validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      const newServiceState = {
+        currentStep: "select-service-type",
+        nextStep: "select-payment-type",
+        payload: values,
+      };
+
+      setNewServiceState(newServiceState);
     },
   });
 

@@ -1,0 +1,54 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "home",
+    "projectType": "application",
+    "targets": {
+      "build": {
+        "executor": "@nrwl/next:build",
+        "outputs": ["{options.outputPath}"],
+        "defaultConfiguration": "production",
+        "options": {
+          "root": "home",
+          "outputPath": "dist/home"
+        },
+        "configurations": {
+          "development": {},
+          "production": {}
+        }
+      },
+      "serve": {
+        "executor": "nx:run-script",
+        "defaultConfiguration": "development",
+        "options": {
+          "script": "dev",
+          "buildTarget": "home:build",
+          "dev": true,
+          "port": 3002
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "home:build:development",
+            "dev": true
+          },
+          "production": {
+            "buildTarget": "home:build:production",
+            "dev": false
+          }
+        }
+      },
+      "export": {
+        "executor": "@nrwl/next:export",
+        "options": {
+          "buildTarget": "checkout:build:production"
+        }
+      },
+      "lint": {
+        "executor": "@nrwl/linter:eslint",
+        "outputs": ["{options.outputFile}"],
+        "options": {
+          "lintFilePatterns": ["apps/checkout/**/*.{ts,tsx,js,jsx}"]
+        }
+      }
+    },
+    "tags": []
+  }

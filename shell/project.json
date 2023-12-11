@@ -4,10 +4,11 @@
     "projectType": "application",
     "targets": {
       "build": {
-        "executor": "@nrwl/next:build",
+        "executor": "nx:run-script",
         "outputs": ["{options.outputPath}"],
         "defaultConfiguration": "production",
         "options": {
+          "script": "build",
           "root": "shell",
           "outputPath": "dist/shell"
         },

@@ -1,6 +1,5 @@
-// import HomePage from 'home/pages/index';
-// console.log('homepage', HomePage)
-// const Home = HomePage;
-// Home.getInitialProps = HomePage.getInitialProps;
-// export default Home;
+const Index = () => {
+  return <h1>Hola Mundo</h1>;
+};
 
+export default Index;

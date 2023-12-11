@@ -21,13 +21,20 @@ import dayjs from "dayjs";
 const ConfirmServiceSubscriptionFormComponent = () => {
   const [types, setTypes] = useState([]);
   const accountInfo = globalStore((state) => state.accountInfo);
-  console.log(
-    "🚀 ~ file: confirm-service-subscription-form.js:23 ~ ConfirmServiceSubscriptionFormComponent ~ accountInfo:",
-    accountInfo
-  );
   const setAccountInfo = globalStore((state) => state.setAccountInfo);
 
-  const { payload } = globalStore((state) => state.newServiceState);
+  const { payload } = globalStore((state) => state.newServiceState) ?? {
+    payload: {
+      type: '',
+      subType: '',
+      price: 0,
+      cardType: '',
+      cardNumber: '',
+      cardSecurityCode: '',
+      cardName: '',
+      cardAddress: '',
+    },
+  };
   const {
     type,
     subType,
@@ -58,7 +65,6 @@ const ConfirmServiceSubscriptionFormComponent = () => {
   });
 
   const updateAccountInfo = ({ type, subType }) => {
-
     const service = `${type} - ${subType}`;
 
     const now = new Date();

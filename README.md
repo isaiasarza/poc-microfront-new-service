@@ -15,10 +15,16 @@ Consta de dos microfront (login y home), más el componente orquestador o conten
 - **@nextui-org/react: ^2.2.9**
 - **@module-federation/nextjs-mf: ^8.1.0-canary.1**.
 
-## Ejecutar
+## Ejecutar con yarn
 
 ```shell
     yarn install #Instalar las dependencias necesarias en cada componente.
     yarn run start #Ejecutar desde la carpeta raíz, esto levanta todos los componentes.
     yarn run build #Ejecutar desde la carpeta raíz, esto "buildea" todos los componentes.
+```
+
+## Ejecutar con NX
+
+```shell
+    nx run-many --parallel --target=serve --maxParallel=6 --projects=home,login,shell,new-service-s1,new-service-s2,new-service-s3
 ```

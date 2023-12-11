@@ -11,12 +11,12 @@ const MyAccountComponent = () => {
           name=""
           description=""
           avatarProps={{
-            src: accountInfo.user.selfie,
+            src: accountInfo?.user?.selfie,
           }}
         />
         <div className="flex flex-col">
           <p className="text-md">Mi Cuenta</p>
-          <p className="text-small text-default-500">{accountInfo.user.name}</p>
+          <p className="text-small text-default-500">{accountInfo?.user?.name}</p>
         </div>
       </CardHeader>
       <Divider />
@@ -24,19 +24,19 @@ const MyAccountComponent = () => {
         <p>
           Estado:{" "}
           <span style={{ fontWeight: "bold" }}>
-            {accountInfo.account.status}.
+            {accountInfo?.account?.status}.
           </span>
         </p>
         <p>
           Servicios Contratados:{" "}
           <span style={{ fontWeight: "bold" }}>
-            {accountInfo.account.services.join(",")}.
+            {accountInfo?.account?.services?.join(",")}.
           </span>
         </p>
         <p>
           Venc. Prox Factura:{" "}
           <span style={{ fontWeight: "bold" }}>
-            {accountInfo.account.expiration}.
+            {accountInfo?.account?.expiration}.
           </span>
         </p>
       </CardBody>

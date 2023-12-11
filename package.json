@@ -5,7 +5,8 @@
   "scripts": {
     "start": "pnpm --parallel --filter nextjs-ssr_* dev",
     "build": "pnpm --parallel --filter nextjs-ssr_* build",
-    "serve": "pnpm --parallel --filter nextjs-ssr_* start"
+    "serve": "pnpm --parallel --filter nextjs-ssr_* start",
+    "install:all": "pnpm --parallel --filter nextjs-ssr_* yarn install"
   },
   "dependencies": {
     "concurrently": "^7.0.0",

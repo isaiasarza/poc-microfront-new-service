@@ -2,9 +2,10 @@ const NextFederationPlugin = require("@module-federation/nextjs-mf");
 // this enables you to use import() and the webpack parser
 // loading remotes on demand, not ideal for SSR
 const remotes = (isServer) => {
+  console.log(process.env.LOGIN_HOST);
   const location = isServer ? "ssr" : "chunks";
   return {
-    login: `login@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
+    login: `login@${process.env.LOGIN_HOST}/_next/static/${location}/remoteEntry.js`,
     home: `home@http://localhost:3002/_next/static/${location}/remoteEntry.js`,
     s1: `s1@http://localhost:3003/_next/static/${location}/remoteEntry.js`,
     s2: `s2@http://localhost:3004/_next/static/${location}/remoteEntry.js`,

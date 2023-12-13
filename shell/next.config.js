@@ -9,9 +9,9 @@ const remotes = (isServer) => {
     login: `login@https://poc-microfront-login-50lpg7u1s-daniarzas-projects.vercel.app/_next/static/${location}/remoteEntry.js`,
     //home: `home@${process.env.HOME_HOST}/_next/static/${location}/remoteEntry.js`,
     home: `home@https://poc-microfront-home-1igahlqri-daniarzas-projects.vercel.app/_next/static/${location}/remoteEntry.js`,
-    s1: `s1@${process.env.S1_HOST}/_next/static/${location}/remoteEntry.js`,
-    s2: `s2@${process.env.S2_HOST}/_next/static/${location}/remoteEntry.js`,
-    s3: `s3@${process.env.S3_HOST}/_next/static/${location}/remoteEntry.js`,
+    s1: `s1@http://localhost:3003/_next/static/${location}/remoteEntry.js`,
+    s2: `s2@http://localhost:3004/_next/static/${location}/remoteEntry.js`,
+    s3: `s3@http://localhost:3005/_next/static/${location}/remoteEntry.js`,
   };
 };
 module.exports = {

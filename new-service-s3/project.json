@@ -4,10 +4,11 @@
     "projectType": "application",
     "targets": {
       "build": {
-        "executor": "@nrwl/next:build",
+        "executor": "nx:run-script",
         "outputs": ["{options.outputPath}"],
         "defaultConfiguration": "production",
         "options": {
+          "script": "build",
           "root": "new-service-s3",
           "outputPath": "dist/new-service-s3"
         },

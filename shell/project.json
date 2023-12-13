@@ -1,55 +1,69 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "shell",
-    "projectType": "application",
-    "targets": {
-      "build": {
-        "executor": "nx:run-script",
-        "outputs": ["{options.outputPath}"],
-        "defaultConfiguration": "production",
-        "options": {
-          "script": "build",
-          "root": "shell",
-          "outputPath": "dist/shell"
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "shell",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-script",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "script": "build",
+        "root": "shell",
+        "outputPath": "dist/shell"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "start": {
+      "executor": "nx:run-script",
+      "defaultConfiguration": "development",
+      "options": {
+        "script": "start",
+        "buildTarget": "shell:build",
+        "dev": true,
+        "port": 3000
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "nx:run-script",
+      "defaultConfiguration": "development",
+      "options": {
+        "script": "dev",
+        "buildTarget": "shell:build",
+        "dev": true,
+        "port": 3000
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "shell:build:development",
+          "dev": true
         },
-        "configurations": {
-          "development": {},
-          "production": {}
-        }
-      },
-      "serve": {
-        "executor": "nx:run-script",
-        "defaultConfiguration": "development",
-        "options": {
-          "script": "dev",
-          "buildTarget": "shell:build",
-          "dev": true,
-          "port": 3000
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "shell:build:development",
-            "dev": true
-          },
-          "production": {
-            "buildTarget": "shell:build:production",
-            "dev": false
-          }
-        }
-      },
-      "export": {
-        "executor": "@nrwl/next:export",
-        "options": {
-          "buildTarget": "checkout:build:production"
-        }
-      },
-      "lint": {
-        "executor": "@nrwl/linter:eslint",
-        "outputs": ["{options.outputFile}"],
-        "options": {
-          "lintFilePatterns": ["apps/checkout/**/*.{ts,tsx,js,jsx}"]
+        "production": {
+          "buildTarget": "shell:build:production",
+          "dev": false
         }
       }
     },
-    "tags": []
-  }
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "checkout:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/checkout/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

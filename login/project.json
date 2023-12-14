@@ -19,27 +19,21 @@
       },
       "start": {
         "executor": "nx:run-script",
+        "outputs": ["{options.outputPath}"],
         "defaultConfiguration": "development",
         "options": {
           "script": "start",
-          "buildTarget": "login:build",
-          "dev": true,
-          "port": 3001
+          "root": "login",
+          "outputPath": "dist/login"
         },
         "configurations": {
-          "development": {
-            "buildTarget": "login:build:development",
-            "dev": true
-          },
-          "production": {
-            "buildTarget": "login:build:production",
-            "dev": false
-          }
+          "development": {},
+          "production": {}
         }
       },
       "serve": {
         "executor": "nx:run-script",
-        "defaultConfiguration": "local",
+        "defaultConfiguration": "development",
         "options": {
           "script": "dev",
           "buildTarget": "login:build",

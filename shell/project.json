@@ -19,12 +19,12 @@
     },
     "start": {
       "executor": "nx:run-script",
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "development",
       "options": {
         "script": "start",
-        "buildTarget": "shell:build",
-        "dev": true,
-        "port": 3000
+        "root": "shell",
+        "outputPath": "dist/shell"
       },
       "configurations": {
         "development": {},

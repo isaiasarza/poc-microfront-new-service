@@ -6,7 +6,7 @@
       "build": {
         "executor": "nx:run-script",
         "outputs": ["{options.outputPath}"],
-        "defaultConfiguration": "production",
+        "defaultConfiguration": "development",
         "options": {
           "script": "build",
           "root": "home",

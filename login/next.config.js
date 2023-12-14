@@ -4,7 +4,7 @@ const NextFederationPlugin = require("@module-federation/nextjs-mf");
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
   return {
-    shell: `shell@${process.env.SHELL_HOST}/_next/static/${location}/remoteEntry.js`,
+    shell: `shell@https://poc-microfront.vercel.app/_next/static/${location}/remoteEntry.js`,
   };
 };
 module.exports = {

@@ -17,6 +17,20 @@
           "production": {}
         }
       },
+      "start": {
+        "executor": "nx:run-script",
+        "outputs": ["{options.outputPath}"],
+        "defaultConfiguration": "development",
+        "options": {
+          "script": "start",
+          "root": "home",
+          "outputPath": "dist/home"
+        },
+        "configurations": {
+          "development": {},
+          "production": {}
+        }
+      },
       "serve": {
         "executor": "nx:run-script",
         "defaultConfiguration": "development",

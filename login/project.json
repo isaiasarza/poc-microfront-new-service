@@ -39,7 +39,7 @@
       },
       "serve": {
         "executor": "nx:run-script",
-        "defaultConfiguration": "development",
+        "defaultConfiguration": "local",
         "options": {
           "script": "dev",
           "buildTarget": "login:build",

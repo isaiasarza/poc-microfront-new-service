@@ -3,8 +3,9 @@ const NextFederationPlugin = require("@module-federation/nextjs-mf");
 // loading remotes on demand, not ideal for SSR
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
+  const shell = `shell@${process.env.SHELL_HOST}/_next/static/${location}/remoteEntry.js`;
   return {
-    shell: `shell@http://localhost:3000/_next/static/${location}/remoteEntry.js`,
+    shell,
   };
 };
 module.exports = {

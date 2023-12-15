@@ -1,3 +1,0 @@
-{
-  "rewrites": [{ "source": "/shell", "destination": "/about-our-company.html" }]
-}

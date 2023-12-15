@@ -17,6 +17,20 @@
           "production": {}
         }
       },
+      "start": {
+        "executor": "nx:run-script",
+        "outputs": ["{options.outputPath}"],
+        "defaultConfiguration": "development",
+        "options": {
+          "script": "start",
+          "root": "new-service-s3",
+          "outputPath": "dist/new-service-s3"
+        },
+        "configurations": {
+          "development": {},
+          "production": {}
+        }
+      },
       "serve": {
         "executor": "nx:run-script",
         "defaultConfiguration": "development",

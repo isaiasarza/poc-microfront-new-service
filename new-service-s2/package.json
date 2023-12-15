@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "rm -rf .next;NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3004",
-    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
-    "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3004"
+    "build": "yarn install; NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "start": "yarn install; NEXT_PRIVATE_LOCAL_WEBPACK=true next start -p 3004"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.1.0-canary.1",

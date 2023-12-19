@@ -23,6 +23,10 @@ const ConfirmServiceSubscriptionFormComponent = () => {
   const accountInfo = globalStore((state) => state.accountInfo);
   const setAccountInfo = globalStore((state) => state.setAccountInfo);
 
+  const state = globalStore((state) => state);
+
+  console.log("New Service S3 Microfrontend - global state:", state);
+
   const { payload } = globalStore((state) => state.newServiceState) ?? {
     payload: {
       type: '',

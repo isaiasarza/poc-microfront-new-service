@@ -20,6 +20,10 @@ const SelectServiceTypeFormComponent = () => {
 
   const setNewServiceState = globalStore((state) => state.setNewServiceState);
 
+  const state = globalStore((state) => state);
+
+  console.log("New Service S1 Microfrontend - global state:", state);
+
   useEffect(() => {
     const fetchData = async () => setTypes(await fetchServiceType());
     fetchData();

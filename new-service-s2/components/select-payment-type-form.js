@@ -20,6 +20,10 @@ const SelectPaymentTypeFormComponent = () => {
   const newServiceState = globalStore((state) => state.newServiceState);
   const setNewServiceState = globalStore((state) => state.setNewServiceState);
 
+  const state = globalStore((state) => state);
+
+  console.log("New Service S2 Microfrontend - global state:", state);
+
   useEffect(() => {
     const fetchData = async () => setTypes(await fetchPaymentType());
     fetchData();

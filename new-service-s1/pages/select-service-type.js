@@ -1,6 +1,6 @@
 import SelectServiceTypeFormComponent from "@/components/select-service-type-form";
-import { NextUIProvider } from "@nextui-org/react";
-
+import { useEffect } from "react";
+import globalStore from "shell/globalStore";
 const SelectServiceTypePage = () => {
   const state = globalStore((state) => state);
 

@@ -1,5 +1,6 @@
 import SelectPaymentTypeFormComponent from "@/components/select-payment-type-form";
-
+import { useEffect } from "react";
+import globalStore from "shell/globalStore";
 const SelectPaymentTypePage = () => {
   const state = globalStore((state) => state);
 

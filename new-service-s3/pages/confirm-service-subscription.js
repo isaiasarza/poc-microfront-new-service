@@ -1,6 +1,6 @@
 import ConfirmServiceSubscriptionFormComponent from "@/components/confirm-service-subscription-form";
 import { useEffect } from "react";
-
+import globalStore from "shell/globalStore";
 const ConfirmServiceSubscriptionPage = () => {
   const state = globalStore((state) => state);
 
